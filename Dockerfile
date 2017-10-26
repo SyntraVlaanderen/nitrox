@@ -8,7 +8,6 @@ RUN (cd /tmp && tar xvzf ns-10.5-58.11-sdk.tar.gz && \
     cd nitro-python-1.0/ && \
     python setup.py install && \
     cd / && \
-    rm -rf /tmp && \
     mkdir -p /usr/src/app)
 
 RUN pip install docker-py
