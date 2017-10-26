@@ -95,7 +95,12 @@ class MarathonInterface(object):
     def configure_ns_for_app(self, appname):
         backends = self.get_backends_for_app("/" + appname)
         logger.debug("Backends for %s are %s" % (appname, str(backends)))
-        self.netskaler.configure_app(appname,  backends)
+
+        if backends:
+          self.netskaler.configure_app(appname,  backends)
+        else:
+          logger.error("Backends for %s are not send to netscaler because they are empty", %(appname))
+
 
     def configure_ns_for_all_apps(self):
         appnames = map(lambda x:  x['name'], self.app_info['apps'])
