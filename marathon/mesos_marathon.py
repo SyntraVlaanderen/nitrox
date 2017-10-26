@@ -99,7 +99,7 @@ class MarathonInterface(object):
         if backends:
           self.netskaler.configure_app(appname,  backends)
         else:
-          logger.error("Backends for %s are not send to netscaler because they are empty", %(appname))
+          logger.error("Backends for %s are not send to netscaler because they are empty" % (appname))
 
 
     def configure_ns_for_all_apps(self):
